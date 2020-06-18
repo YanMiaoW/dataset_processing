@@ -4,7 +4,6 @@ from PyQt5.QtWidgets import QApplication, QWidget
 from PyQt5 import QtGui
 
 
-
 def main():
     '''可视化数据增加脚本，输出一个数据增强配置文件'''
 
