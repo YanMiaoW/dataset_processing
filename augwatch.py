@@ -55,7 +55,6 @@ def main(cfg_path, test_img_root, resize, limit, interval):
 
     # 循环展示
     while True:
-
         # 检查cfg变动，更新aug函数
         if os.stat(cfg_path).st_mtime != cfg_last_change_time:
             current_time=time.strftime("%H:%M:%S")
