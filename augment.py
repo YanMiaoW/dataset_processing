@@ -1,27 +1,20 @@
-import sys
-
-from PyQt5.QtWidgets import QApplication, QWidget
-from PyQt5 import QtGui
+import json
+import easydict
 
 
-def main():
-    '''可视化数据增加脚本，输出一个数据增强配置文件'''
+class AugCNN:
+    '''分类任务图片数据增强类'''
 
-    app = QApplication(sys.argv)
+    def __init__(self, json_file):
+        
+        #读取配置文件
+        with open(json_file) as f:
+            cfg_json = json.load(f)
 
-    # 设置主界面
-    w = QWidget()
-    w.resize(250, 150)
-    w.move(300, 300)
-    w.setWindowTitle('数据增强')
-    w.setWindowIcon(QtGui.QIcon('window.png'))
-
-    # 启动页面
-    w.show()
-
-    # 关闭页面
-    sys.exit(app.exec_())
+            cfg = easydict.EasyDict(cfg_json)
+            self.cfg = cfg
 
 
-if __name__ == '__main__':
-    main()
+
+    def augment(self, images):
+        print(self.cfg)
